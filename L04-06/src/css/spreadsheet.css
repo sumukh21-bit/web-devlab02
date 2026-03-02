@@ -1,1 +1,47 @@
-/* src/css/spreadsheet.css */
+
+
+.style-bg{
+     background-color: #f3f4f6;
+    border-radius: 14px;
+    border: 1px solid #e6e8ef;
+
+}
+
+.pb{
+    border: 1px solid #e6e8ef;
+    border-radius: 12px;
+    padding: 16px;
+   
+}
+
+
+
+.sContainer{
+    position: relative;
+    left:10px;
+
+  
+}
+th{
+    background-color: #d0d0d0 !important; 
+    text-align: center !important;
+
+}
+
+
+td:first-child{
+    background-color: #d0d0d0;
+     font-weight: bold;
+}
+
+.selected{
+    background-color: #e0e0ff !important;
+}
+
+td input {
+  width: 100%;
+  border: none;
+  text-align: center;
+  font-family: inherit;
+  font-size: inherit;
+}

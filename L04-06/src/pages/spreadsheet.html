@@ -25,17 +25,109 @@
 
 <body>
   <nav class="navbar is-dark">
-    <header class="page-header">
-    <h1 class="is-size-3">Gradebook Explorer</h1>
-    <p class="is-white subtitle">
-      Explore a gradebook by selecting rows/columns, editing marks, and visualizing grade distributions.
-    </p>
-  </header>
+   
+      <div class="p-4">
+        <h1 class="title is-3 has-text-white">Gradebook Explorer</h1>
+        <p class="subtitle is-6 has-text-white"> Explore a gradebook by selecting rows/columns, editing marks, and visualizing grade distributions.
+        </p>
 
+    </div>
   </nav>
   
 
+   <div class="container py-5">
+     <div class="columns is-centered">
+      <div class="column is-8">
+        <section class="box pb  ">
+      <h2 class="title is-5 label mb-5 ">Selection Summary</h2>
+
+      <div class="sContainer ">
+        <div class="columns is-multiline is-variable is-2  ">
+        <div class="column">
+          <div class="style-bg p-4  ">
+         
+            <div class="">Selected</div>
+            <div id="slab" class=" label value">None: —</div>
+   
+        </div>
+
+        </div>
+        
+
+        <div class="column ">
+          <div class="style-bg p-4">
+            <div class="">Count</div>
+            <div id="CNT" class="label value">0</div>
+          </div>
+        </div>
+         <div class="column">
+              <div class="style-bg p-4">
+                <div >Mean</div>
+                <div id="MEAN" class="label value">—</div>
+              </div>
+            </div>
+
+
+            <div class="column ">
+              <div class="style-bg p-4">
+                <div class="">Min</div>
+                <div id="MIN" class="label value">—</div>
+              </div>
+            </div>
+            <div class="column ">
+              <div class="style-bg p-4">
+                <div class="">Max</div>
+                <div id="MAX" class="label value">—</div>
+              </div>
+            </div>
+          </div>
+      </div>
+       
+
+      <!----->
+      <div class="box style-bg mt-5">
+        <h1 class="is-size-5"><strong>Instructions</strong></h1>
+        <ul class="ml-5"style="list-style: disc;">
+          <li>Click a <strong>column header</strong> to select an assessment.</li>
+      <li>Click a <strong>row header</strong> to select a student.</li>
+      <li>Click a <strong>grade cell</strong> to edit; press <strong>ENTER</strong> to save.</li>
+        </ul>
+       
+      </div>
+       
+      </div>
+
+      
+    </section>
+
+
+   </div>
+   
+    </div>
+
+      </div>
+
+      
+
   <!-- Spreadsheet here -->
+   <div class="container">
+    <div class="columns is-centered">
+    <div class=" column is-8">
+       <section class="box pb">
+        <h2 class="title is-5 label">Gradebook</h2>
+        <div class="table-container">
+          <table id="gradebook-table" class="table is-bordered is-fullwidth">
+             </table>
+        </div>
+      </section></div>
+
+    </div>
+
+   </div>
+
+   
+   
+   
 
 </body>
 </html>
