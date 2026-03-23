@@ -42,6 +42,23 @@ td input {
   width: 100%;
   border: none;
   text-align: center;
-  font-family: inherit;
-  font-size: inherit;
+
+}
+
+#chart-container {
+  margin-top: 16px;
+  padding: 12px;
+  background: #fff;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+#grade-chart {
+  display: block;
+  max-width: 100%;
+}
+
+.bar-label {
+  font-size: 13px;
+  fill: #222;
 }
