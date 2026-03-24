@@ -69,7 +69,7 @@ function buildTable(){
 }
 
 
-//Checks wheter the user is making either a row selections or a col selection and what index 
+//Checks whether the user is making either a row selections or a col selection and what index 
 let currentSelection = { type: null, index: null };
 
 //This function lets the user edit and change the grades from 0 to 100
@@ -103,14 +103,14 @@ function makeEditable(){
     }
   });
 
-
+  
   $("#gradebook-table").on("blur", "td[contenteditable='true']", function () {
     const $cell = $(this);
     const rowIndex = parseInt($cell.data("row"));
     const colIndex = parseInt($cell.data("col"));
     const marks = $cell.text().trim();
 
-   
+    
 
     if (marks === "") {
       GB.matrix[rowIndex][colIndex] = null;
