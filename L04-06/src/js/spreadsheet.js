@@ -3,7 +3,7 @@
 
 
 
-// initializing the grade book
+// initializing the grade book matrix which takes row and column
 let GB = null;
 
 
@@ -79,7 +79,7 @@ function makeEditable(){
  
   $("#gradebook-table").on("click", ".row-header", function () {
     const rowIndex = parseInt($(this).data("row"));
-    clearSel();
+    deSelect();
     selectRow(rowIndex);
     currentSelection = { type: "row", index: rowIndex };
     updateCurrSel();
@@ -88,7 +88,7 @@ function makeEditable(){
 
  $("#gradebook-table").on("click", ".col-header", function () {
     const colIndex = parseInt($(this).data("col"));
-    clearSel();
+    deSelect();
     selectColumn(colIndex);
     currentSelection = { type: "col", index: colIndex };
     updateCurrSel();
@@ -152,7 +152,7 @@ function makeEditable(){
 }
 
 //Clears any previous selection
-function clearSel() {
+function deSelect() {
   $("#gradebook-table td.selected").removeClass("selected");
 }
 
@@ -199,7 +199,7 @@ function updateCurrSel() {
   }
 }
 
-//Display plays the stats like name of either the studebt or the assesment, total count, mean, min grade and max grade and finally updates the chart for visual data
+//Display plays the stats like name of either the student or the assesment, total count, mean, min grade and max grade and finally updates the chart for visual data
 
 function dispSTATS(label, nums) {
   const stats = getStats(nums);
@@ -211,7 +211,8 @@ function dispSTATS(label, nums) {
     $("#MEAN").text("-");
 
   }else{
-     $("#MEAN").text(stats.mean);
+    
+     $("#MEAN").text(Math.round(stats.mean));
 
   }
   if(stats.min===null){

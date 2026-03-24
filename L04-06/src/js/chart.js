@@ -1,13 +1,26 @@
 // src/js/chart.js
 // D3 charting for Gradebook Explorer
 
+
+// fucntion which allows us to  maps the number grade to letter grade
 function gradeToLetter(grade) {
-  if (grade >= 90) return "A";
-  if (grade >= 80) return "B";
-  if (grade >= 70) return "C";
-  if (grade >= 60) return "D";
+  if (grade >= 90){
+    return "A";
+
+  } 
+  if (grade >= 80){
+    return "B";
+  }
+  if (grade >= 70){
+    return "C";
+  } 
+  if (grade >= 60){
+      return "D";
+  } 
   return "F";
 }
+
+//This function which which lets us get number of freuqnecies for each letter grade
 
 function getLetterFrequencies(nums) {
   const freq = { A: 0, B: 0, C: 0, D: 0, F: 0 };
@@ -30,6 +43,8 @@ function getLetterFrequencies(nums) {
   return freq;
 }
 
+
+//Core logic function which given the grades implements both function aboves and builds the chart when either the row or column is selected
 function updateChart(nums) {
   const svg = d3.select("#grade-chart");
   if (svg.empty()) return;
@@ -38,7 +53,7 @@ function updateChart(nums) {
 
   const freq = getLetterFrequencies(nums);
 
-  const data = [
+  const freq_map = [
     { grade: "A", value: freq.A },
     { grade: "B", value: freq.B },
     { grade: "C", value: freq.C },
@@ -59,7 +74,7 @@ function updateChart(nums) {
     .attr("transform", `translate(${70},${30})`);
 
   const xScale = d3.scaleBand()
-    .domain(data.map(d => d.grade))
+    .domain(freq_map.map(d => d.grade))
     .range([0, innerWidth])
     .padding(0.2);
 
@@ -68,7 +83,7 @@ function updateChart(nums) {
     .range([innerHeight, 0]);
 
   g.selectAll("rect")
-    .data(data)
+    .data(freq_map)
     .enter()
     .append("rect")
     .attr("x", d => xScale(d.grade))
@@ -76,15 +91,6 @@ function updateChart(nums) {
     .attr("width", xScale.bandwidth())
     .attr("height", d => innerHeight - yScale(d.value))
     .attr("fill", "black");
-
-  g.selectAll(".bar-label")
-    .data(data)
-    .enter()
-    .append("text")
-    .attr("class", "bar-label")
-    .attr("x", d => xScale(d.grade) + xScale.bandwidth() / 2)
-    .attr("y", d => yScale(d.value) - 8)
-
 
 
   g.append("g")
@@ -96,13 +102,12 @@ function updateChart(nums) {
 
   g.append("text")
     .attr("x", innerWidth / 2)
-    .attr("y", innerHeight + 45)
+    .attr("y", innerHeight + 30)
     .text("Grade");
 
   g.append("text")
     .attr("transform", "rotate(-90)")
     .attr("x", -innerHeight / 2)
     .attr("y", -45)
-
     .text("Frequency");
 }

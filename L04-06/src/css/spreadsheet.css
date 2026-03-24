@@ -45,20 +45,8 @@ td input {
 
 }
 
-#chart-container {
-  margin-top: 16px;
-  padding: 12px;
-  background: #fff;
-  border-radius: 8px;
-  overflow-x: auto;
-}
-
-#grade-chart {
-  display: block;
-  max-width: 100%;
-}
-
 .bar-label {
   font-size: 13px;
   fill: #222;
 }
+

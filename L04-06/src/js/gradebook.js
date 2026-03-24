@@ -1,9 +1,6 @@
 // src/js/gradebook.js
 // Data + parsing + utilities for Gradebook Explorer
 
-// src/js/gradebook.js
-// Lab 04 core logic: data structure, safe parsing, row/col retrieval, stats,
-// plus a Promise-shaped placeholder loader.
 
 
 
@@ -82,7 +79,7 @@ function isValidCol(gb, colIndex) {
   return Number.isInteger(colIndex) && colIndex >= 0 && colIndex < gb.assessments.length;
 }
 
-// Retrieve a row as numeric array (nulls removed)
+// Retrieve a row as numeric array 
 function getRowNums(gb, rowIndex) {
   if (!isValidRow(gb, rowIndex)) return [];
   const sScores = gb.matrix[rowIndex];
@@ -97,7 +94,7 @@ function getRowNums(gb, rowIndex) {
   return nums;
 }
 
-// Retrieve a column as numeric array (nulls removed)
+// Retrieve a column as numeric array 
 function getColNums(gb, colIndex) {
   if (!isValidCol(gb, colIndex)) {
     return [];
@@ -114,7 +111,7 @@ function getColNums(gb, colIndex) {
 
   return nums;
 }
-// Basic summary stats
+// Helps with the stats and returns countm , mean, min and max
 function getStats(nums) {
   if (!nums || nums.length === 0) {
     return { count: 0, mean: null, min: null, max: null };
